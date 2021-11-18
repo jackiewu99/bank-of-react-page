@@ -27,7 +27,6 @@ class App extends Component {
   addCredit = (creditAmount) => //addCredit function to add the credit to account balance
   {
     var cred = this.state.accountBalance
-    alert(creditAmount.amount)
     if(creditAmount.amount === '')
       {
         this.setState({accountBalance: Math.round(cred * 100) / 100})
@@ -83,7 +82,7 @@ class App extends Component {
     const DebitComponent = () => (<Debit accountBalance={this.state.accountBalance} addDebit={this.addDebit} debitInfo={this.state.debits}/> );
     const CreditComponent = () => (<Credit accountBalance={this.state.accountBalance} addCredit={this.addCredit} creditInfo={this.state.credits}/> );
     return (
-        <Router>
+        <Router basename = "bank-of-react-page">
           <div>
 
             <Route exact path="/" render={HomeComponent}/>
